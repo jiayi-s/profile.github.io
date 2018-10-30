@@ -1,0 +1,93 @@
+---
+title: "HW4 Dashborad"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(viridis)
+## Loading required package: viridisLite
+library(p8105.datasets)
+
+library(plotly)
+```
+
+```{r load and cleaning noaa data, include = FALSE}
+data(ny_noaa, package = "p8105.datasets")
+
+#separate the date
+#include reasonable units for temp, prcp and snowfall
+ny_noaa =
+ny_noaa %>% 
+  separate(date, into = c("year", "month", "day"), sep = "-") 
+
+# change the type of tmax and tmin
+ny_noaa$tmax = as.numeric(unclass(ny_noaa$tmax))
+ny_noaa$tmin = as.numeric(unclass(ny_noaa$tmin))
+ny_noaa$year = as.numeric(unclass(ny_noaa$year))
+ny_noaa$month = as.numeric(unclass(ny_noaa$month))
+ny_noaa$day = as.numeric(unclass(ny_noaa$day))
+
+#mutate the value of varialbes so that they are in agreement with reasonable units
+ny_noaa =
+ny_noaa %>% 
+  mutate(tmax = tmax *0.1, tmin = tmin*0.1, prcp = prcp*0.1)
+
+#we randomly selected the following 10 stations for plots on this page:
+stations = sample(na.omit(ny_noaa, cols= c("tmax", "tmin"))$id, size = 10, replace = FALSE)
+```
+
+
+
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Average temperature in August among 10 randomly selected stations.
+
+```{r plotting avg temp in August}
+# Average maximum temperature in August among the selected samples. 
+ny_noaa %>% 
+  na.omit(cols= c("tmax", "tmin")) %>% 
+  filter(id %in% stations) %>% 
+  filter(month == 8) %>% 
+  group_by(id, year) %>% 
+  summarize(avg_temp = mean(tmax)) %>% 
+  plot_ly(x = ~year, y = ~ avg_temp, color = ~id, type = "scatter",mode = "lines") %>% 
+  layout(title = "Average maximum temperature in August from 1980-2010 among 10 selected NY stations.")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Tmax VS Tmin from "USC00305113" (1981-2010)
+
+```{r plotting tmax vs tmin}
+
+# plotting tmax vs tmin of one particular station
+
+ny_noaa %>% 
+  na.omit(cols= c("tmax", "tmin")) %>% 
+  filter(id == "USC00305113") %>%
+  plot_ly(x = ~tmin, y = ~tmax, color = ~prcp, type = "scatter", mode = "markers",
+          alpha = 0.4) %>% 
+  layout(title = "The relaitonship between Tmax and Tmin across 1980 to 2010 in station 'USC00305113'")
+
+```
+
+### Distribution of snowfall (mm) among the selected stations. 
+
+```{r distribution of snowfall}
+# Distribution of snowfall (mm) from 1981 to 2010 among the selected stations. 
+ny_noaa  %>% 
+  na.omit(cols = "snow") %>% 
+  filter(id %in% stations) %>% 
+  filter(snow > 0 & snow <100) %>% 
+  plot_ly(x = ~id, y = ~snow, color = ~id, type = "box") %>% 
+  layout(title = "Distribution of snowfall (mm) from 1981 to 2010 among the selected stations.")
+```

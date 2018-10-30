@@ -1,0 +1,19 @@
+---
+title: "Jiayi Shen"
+---
+
+### I have a webpage!
+
+And I can put all kinds of stuff on it!
+
+
+
+### Add some links - external
+I like [google](http://www.google.com). 
+
+### Add some links - internal
+I can link directly to my [about page](about.html).
+  
+  
+### Adding images
+<img src="./images/WechatIMG4.jpeg" style="width:75%">
