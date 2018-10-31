@@ -2,18 +2,17 @@
 title: "Jiayi Shen"
 ---
 
-### I have a webpage!
+<img src="./images/Image.PNG" style="width:85%">
 
-And I can put all kinds of stuff on it!
-
-
-
-### Add some links - external
-I like [google](http://www.google.com). 
-
-### Add some links - internal
-I can link directly to my [about page](about.html).
+Hi everyone :p
   
+  Welcome to my personal website. 
   
-### Adding images
-<img src="./images/WechatIMG4.jpeg" style="width:75%">
+  I'm currently a 1st Year MS Biostatistics at Columbia University, Mailman School of Public Health. From [this page](education.html), you can know a bit more on my education background. And my other extracurricular experience can be accessed [here](extracurricular.html).   
+  
+  The answer to homework 4 problem 2 can be found [here](hw4_dashboard.html).
+ 
+
+
+
+

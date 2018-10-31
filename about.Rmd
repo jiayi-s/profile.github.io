@@ -1,9 +1,11 @@
 ---
-title: "About"
+title: "Contact me"
 ---
+If there is any questions regarding this website, feel free to contact me via:
 
-### About this site
 
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
+### Email 
+<js5354@cumc.columbia.edu>
 
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+### Linkedin 
+https://www.linkedin.com/in/jiayi-shen-482a48124/

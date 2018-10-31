@@ -1,0 +1,23 @@
+---
+title: "Academic Experience"
+---
+
+## EDUCATION 
+**University College London, Division of Biosciences**\
+*BSc in Biomedical Science, London UK, 09/2015 – 06/2018*\
+Core courses: \
+Molecular and Cell Biology, Cancer Biology, Introductory Statistical Methods and Computing
+\n\n
+
+**Columbia University, Mailman School of Public Health**\
+*MS in Biostatistics, New York USA, Expected graduation: 05/2020*\
+Core courses: \
+Probability, Statistical Methods, Data Science using R, Epidemiology
+
+
+## RESEARCH
+**Identifying Distant Human-Yeast Orthologue Genes on PomBase**\
+*09/2017-03/2018, London, UK*\
+- Retrieved distinct homologous amino acid sequence of yeast gene products using multiple sequence alignment tools, including BLAST and DIOPT \
+- Analyzed and reviewed gene sequence and relevant literature of 470 gene products as results returned from the bioinformatics tools \
+- Identified 10 pairs of putative human-yeast orthologs. All the predictions have been published on [Pombase.com](https://www.pombase.org/). 
