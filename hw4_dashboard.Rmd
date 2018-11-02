@@ -1,5 +1,5 @@
 ---
-title: "HW4 Dashborad"
+title: "HW4 -- New York NOAA weather data, 1980-2010"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -45,10 +45,10 @@ stations = sample(na.omit(ny_noaa, cols= c("tmax", "tmin"))$id, size = 10, repla
 
 
 
-Column {data-width=650}
+Column {data-width=600}
 -----------------------------------------------------------------------
 
-### Average temperature in August among 10 randomly selected stations.
+### Average temperature in August (1980-2010) among 10 randomly selected stations.
 
 ```{r plotting avg temp in August}
 # Average maximum temperature in August among the selected samples. 
@@ -59,13 +59,14 @@ ny_noaa %>%
   group_by(id, year) %>% 
   summarize(avg_temp = mean(tmax)) %>% 
   plot_ly(x = ~year, y = ~ avg_temp, color = ~id, type = "scatter",mode = "lines") %>% 
-  layout(title = "Average maximum temperature in August from 1980-2010 among 10 selected NY stations.")
+  layout(xaxis = list(title = 'Year')) %>% 
+  layout(yaxis = list(title = 'Average Temperature each year'))
 ```
 
-Column {data-width=350}
+Column {data-width=400}
 -----------------------------------------------------------------------
 
-### Tmax VS Tmin from "USC00305113" (1981-2010)
+### Tmax VS Tmin of station "USC00305113" (1981-2010)
 
 ```{r plotting tmax vs tmin}
 
@@ -76,11 +77,12 @@ ny_noaa %>%
   filter(id == "USC00305113") %>%
   plot_ly(x = ~tmin, y = ~tmax, color = ~prcp, type = "scatter", mode = "markers",
           alpha = 0.4) %>% 
-  layout(title = "The relaitonship between Tmax and Tmin across 1980 to 2010 in station 'USC00305113'")
+  layout(xaxis = list(title = 'Min Temp')) %>% 
+  layout(yaxis = list(title = 'Max Temp'))
 
 ```
 
-### Distribution of snowfall (mm) among the selected stations. 
+### Distribution of snowfall (mm) from 1981 to 2010 among the selected stations. 
 
 ```{r distribution of snowfall}
 # Distribution of snowfall (mm) from 1981 to 2010 among the selected stations. 
@@ -89,5 +91,6 @@ ny_noaa  %>%
   filter(id %in% stations) %>% 
   filter(snow > 0 & snow <100) %>% 
   plot_ly(x = ~id, y = ~snow, color = ~id, type = "box") %>% 
-  layout(title = "Distribution of snowfall (mm) from 1981 to 2010 among the selected stations.")
+  layout(xaxis = list(title = 'Station')) %>% 
+  layout(yaxis = list(title = 'Snowfall (mm)'))
 ```
