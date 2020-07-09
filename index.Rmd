@@ -1,12 +1,12 @@
 ---
-title: ""
+title: " "
 ---
 ```{r, echo = FALSE }
 library(fontawesome)
 ```
 <br>
 <center>
-<img src="./images/square-profile.jpg" style="width:50%" alt="Avatar">
+<img src="./images/square-profile.jpg" style="width:50%" class="rounded-corners">
 </center>
 <br>
 

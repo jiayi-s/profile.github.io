@@ -13,6 +13,9 @@ navbar:
       href: mailto:<shenjiay@usc.edu>  
 output:
   html_document:
+    theme: cosmo
+    highlight: textmate
     include:
       after_body: footer.html
+    css: mystyle.css
     
