@@ -1,23 +1,45 @@
 ---
-title: "Academic Experience"
+title: "  "
 ---
+```{r, echo = FALSE }
+library(fontawesome)
+```
+<br> 
+<br> 
 
-## EDUCATION 
-**University College London, Division of Biosciences**\
-*BSc in Biomedical Science, London UK, 09/2015 – 06/2018*\
-Core courses: \
-Molecular and Cell Biology, Cancer Biology, Introductory Statistical Methods and Computing
-\n\n
+# `r fa("graduation-cap")` Education
+* **Columbia University, Mailman School of Public Health**\
+  * *MS in Biostatistics, New York US, 2018 - 2020*
+  
+* **University College London, Division of Biosciences**  
+  * *BSc in Biomedical Science, London UK, 2015 – 2018*  
 
-**Columbia University, Mailman School of Public Health**\
-*MS in Biostatistics, New York USA, Expected graduation: 05/2020*\
-Core courses: \
-Probability, Statistical Methods, Data Science using R, Epidemiology
+<br> 
+
+# `r fa("flask")` Research Experience
+* **Identifying Distant Human-Yeast Orthologue Genes on PomBase**\
+  *09/2017-03/2018, London, UK*\
+  + Retrieved distinct homologous amino acid sequence of yeast gene products using multiple sequence alignment tools, including BLAST and DIOPT \
+  + Analyzed and reviewed gene sequence and relevant literature of 470 gene products as results returned from the bioinformatics tools \
+  + Identified 10 pairs of putative human-yeast orthologs. All the predictions have been published on [Pombase.com](https://www.pombase.org/). 
+
+<br> 
+
+# `r fa("wrench")` Work Expereience  
+* **Merck Sharp & Dohme (China) Co., Ltd. **\
+  *Associate Advisor, Medical Affairs Department*\
+  *06/2017-09/2017, Shanghai,China* \
+  + Learned about publishing processes and major types of medical and clinical research including meta-analysis and epidemiological studies, and got familiar with the according trial processes\
+  + Arranged kick-off meetings for research design, and coordinated with medical advisors, authors and practitioners to sort out better solutions to research methodology \
+  + Participated in the publication procedure of DYSIS China sub-analysis, HPV epidemiological review in China, and 9 other cases of publication \
+  + Optimised the existing standard operating procedures for preparation and publishing so as to conform to the current publication guidelines.
+
+<br> 
+
+# `r fa("comments")` Leadership
+* **Mandarin Class, UCL Chinese Students and Scholar Association**  
+  *Head of Executive Committee, London, UK, 2016 - 2018*  
+* **Career China, Columbia University Mailman School of Public Health**  
+  *Secretary, New York, US, 2019 - 2020*  
 
 
-## RESEARCH
-**Identifying Distant Human-Yeast Orthologue Genes on PomBase**\
-*09/2017-03/2018, London, UK*\
-- Retrieved distinct homologous amino acid sequence of yeast gene products using multiple sequence alignment tools, including BLAST and DIOPT \
-- Analyzed and reviewed gene sequence and relevant literature of 470 gene products as results returned from the bioinformatics tools \
-- Identified 10 pairs of putative human-yeast orthologs. All the predictions have been published on [Pombase.com](https://www.pombase.org/). 
