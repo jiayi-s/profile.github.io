@@ -18,39 +18,45 @@ library(fontawesome)
 <style>
 .column-left{
   float: left;
-  width: 50%;
+  width: 30%;
+  text-align: left;
+}
+.column-center{
+  display: inline-block;
+  width: 30%;
   text-align: left;
 }
 .column-right{
   float: right;
-  width: 50%;
+  width: 40%;
   text-align: left;
 }
 </style>
 
 
 <div class="column-left">
-### `r fa("seedling")` Research interests
+<h3 style="margin-left: 0%"> `r fa("seedling")` Research interests </h3>
 * Statistical Genetics  
 * Bioinformatics  
 * Causal Inference 
 </div>
 
-<div class="column-right">
-### `r fa("briefcase")` Programming skills
+<div class="column-center">
+<h3 style="margin-left: 0%"> `r fa("briefcase")` Programming skills </h3>
 * R 
 * SAS  
 * MATLAB  
 </div>
-  
-<center>
-### `r fa("forward")` More about me: 
 
+<div class="column-right">
+<h3 style="margin-left: 0%"> `r fa("forward")` More about me </h3>
+<p style="margin-left: 0%">
 Check out my codes: `r fa("github")`  <a href="http://github.com/jiayi-s/"> jiayi-s </a>  
-
 Connect with me on Linkedin: `r fa("linkedin")`  <a href="https://www.linkedin.com/in/jiayi-sylvia-shen-482a48124/"> Sylvia Shen </a>  
-
 Shoot me an email: `r fa("envelope")`  shenjiay AT usc.edu  
-</center>
+</p>
+</div>
+
 
 <br>
+
