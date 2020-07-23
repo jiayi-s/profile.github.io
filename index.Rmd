@@ -1,17 +1,18 @@
 ---
-title: "Jiayi Shen"
+title: " "
 ---
 ```{r, echo = FALSE }
 library(fontawesome)
 ```
 <br>
+
 <center>
 <img src="./images/square-profile.jpg" style="width:50%" class="rounded-corners">
 </center>
 <br>
 
   
-  I'm a PhD student in Biostatistics at Keck School of Medicine, University of Southern California. 
+  Sylvia is a PhD student in Biostatistics at Keck School of Medicine, University of Southern California. She is born and raised in Shanghai, and she's also lived in Singapore, London and New York for a couple of years. She loves to travel and explore fun things to do in cities. A new hobby of hers since moving to southern California is hiking. (California sunshine is more than amazing!)
   
 
 <style>
@@ -29,20 +30,27 @@ library(fontawesome)
 
 
 <div class="column-left">
-### `r fa("seedling")` Interests
+### `r fa("seedling")` Research interests
 * Statistical Genetics  
 * Bioinformatics  
 * Causal Inference 
 </div>
 
 <div class="column-right">
-### `r fa("briefcase")` Skills
+### `r fa("briefcase")` Programming skills
 * R 
 * SAS  
 * MATLAB  
 </div>
-   
   
-   Feel free to navigate around my website. If you have any question, you can shoot me an email or DM me on Linkedin. 
-   
+<center>
+### `r fa("forward")` More about me: 
+
+Check out my codes: `r fa("github")`  <a href="http://github.com/jiayi-s/"> jiayi-s </a>  
+
+Connect with me on Linkedin: `r fa("linkedin")`  <a href="https://www.linkedin.com/in/jiayi-sylvia-shen-482a48124/"> Sylvia Shen </a>  
+
+Shoot me an email: `r fa("envelope")`  shenjiay AT usc.edu  
+</center>
+
 <br>

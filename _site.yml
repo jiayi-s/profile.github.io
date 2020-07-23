@@ -1,7 +1,7 @@
-name: "Jiayi Shen's Profile"
+name: "My Profile Page"
 output_dir: "."
 navbar:
-  title: "Jiayi Shen"
+  title: "Sylvia Shen"
   right:
     - text: "Resume"
       href: education.html      
