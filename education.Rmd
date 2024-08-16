@@ -10,8 +10,8 @@ library(fontawesome)
 
 # `r fa("graduation-cap")` Education
 
-* **University of Southern California, Keck School of Medicine, Department of Preventative Medicine**
-  * PhD in Biostatistics, *Los Angeles US, 2020 - Present*
+* **University of Southern California, Keck School of Medicine, Department of Population and Public Health Sciences**
+  * PhD in Biostatistics, *Los Angeles US, 2020 - 2024*
   
 * **Columbia University, Mailman School of Public Health**
   * MS in Biostatistics, *New York US, 2018 - 2020*
@@ -23,33 +23,43 @@ library(fontawesome)
 
 # `r fa("flask")` Research Experience
 
+* **Statistical modelling of GWAS summary statistics in diverse populations** \
+  *Jan 2021 - Aug 2024, University of Southern California*
+  * Methodology (Statistical Genetics)
+    + Built a hierarchical model for joint analysis of marginal GWAS summary statistics across multiple populations ([“mJAM”](https://onlinelibrary.wiley.com/doi/10.1002/gepi.22562?af=R)), improving PPV of fine-mapping performance by up to 2 fold while preserving sensitivity. 
+    + Extended the model to incorporate high-dimensional multi-omics data and perform [“integrated analysis”](https://onlinelibrary.wiley.com/doi/10.1002/gepi.22577?af=R). 
+    + Curated a CRAN-released R package [“hJAM”](https://github.com/USCbiostats/hJAM) to implement the multi-population fine-mapping and integrated omics analysis with GWAS summary statistics.  
+  * Data Analytics
+    + Performed fine-mapping using GWAS from 18 prostate cancer observational studies of over 20,000 individuals across 4 different ancestry groups, contributing to the discovery of [“451 genetic risk variants”](https://www.nature.com/articles/s41588-023-01534-4) associated with prostate cancer. 
+    + Constructed and evaluated various polygenic risk score models of 4 cancer outcomes among a multi-population cohort.   
+
+
 * **High-dimentional causal mediation analysis in the presence of mediator-outcome confounding** \
-  *May 2019 - July 2020, Columbia University*
+  *May 2019 - Jul 2020, Columbia University*
   + Analyzed high-dimensional microbiome mRNA count data.
-  + Extended the "interventional effects" approach to the setting of high-dimensional mediators so as to estimate the mediation effect in presence of exposure-induced mediator-outcome confounding.
+  + Extended the "interventional effects" approach to the setting of high-dimensional mediators to estimate the mediation effect in presence of exposure-induced mediator-outcome confounding.
   + Implemented de-biased $\ell_1$-regularized estimation of generalized linear model for high-dimensional compositional data in MATLAB.
   + Implemented inverse probability weighting (IPW) estimation of interventional effects in R.
   + Conducted simulation studies to evaluate performance of proposed model.
 
 
 * **Estimating psychiatric disease heritability with EHR**\
-  *May 2019 - December 2019, Columbia University*
-  + Performed preliminary analysis of large-scale Electronic Health Records (EHR) data at family level. 
+  *May 2019 - Dec 2019, Columbia University*
+  + Performed exploratory descriptive analysis (EDA) using large-scale Electronic Health Records (EHR) data at family level.
   + Estimated disease heritability using reparameterized linear and nonlinear mixed effect models with multi-level random effects in R, Stata and SAS.
   + Used repeated subsampling method to validate the robustness of heritability estimates. 
   + Compared flexibility, computation time, and usability of different statistical packages for nonlinear random effects regression models with multiple constraints.
 
 
 * **Gene differential expression analysis using CRISPR screen data**\
-  *March 2019 - August 2019, Columbia University*
-  + Reviewed and compared different normalization methods applicable to CRISPR screen data (RNA-sequencing data). 
-  + Analyzed CRISPR screen data to show non-enrichment of negative control genes and identify enriched set of genes.  
-  + Illustrated differential gene expression by generating a variety of publication quality figures using R/Bioconductor packages. 
+  *Mar 2019 - Aug 2019, Columbia University*
+  + Analyzed CRISPR screen data (RNA-seq data) using MAGeCK and performed gene enrichment analysis to identify genes involved in macrophage efferocytosis.
+  + Visualized differential gene expression through cloud plots, MA plots and volcano plots using R/Bioconductor packages.
   + Developed a workflow using R to process RNA-sequencing data to visualize differential gene expression. 
 
 
 * **Identifying Distant Human-Yeast Orthologue Genes on PomBase**\
-  *09/2017-03/2018, University College London*
+  *Sep 2017 - Mar 2018, University College London*
   + Retrieved distinct homologous amino acid sequence of yeast gene products using multiple sequence alignment tools, including BLAST and DIOPT. 
   + Analyzed and reviewed gene sequence and relevant literature of 470 gene products as results returned from the bioinformatics tools.
   + Identified 10 pairs of putative human-yeast orthologs. All the predictions have been published on [Pombase.com](https://www.pombase.org/). 
@@ -57,12 +67,27 @@ library(fontawesome)
 <br> 
 
 # `r fa("wrench")` Work Expereience  
+* **CVS Health**\
+  *Data Science Intern*\
+  *Jun 2023 - Aug 2023, Remote,US* 
+  + Analyzed medical and Rx claim data of approx. 50,000 Aetna members. Conducted an opportunity analysis to identify saving opportunities from potential cancer drug rebates, with an estimated annual cost savings range of \$5M to \$16M. 
+  + Created interactive dashboards in Tableau for visualizing cancer drug price variations and supporting data-driven decision-making processes. Communicated and interpreted findings to business stakeholders.
+  + Developed a novel metric to quantify cancer regimen outcomes based on trend in total cost of care in claim data, leading to potential machine learning and AI solutions for personalized cancer treatment.
+
 * **Merck Sharp & Dohme (China) Co., Ltd. **\
-  *Associate Advisor, Medical Affairs Department*\
-  *06/2017-09/2017, Shanghai,China* 
-  + Supported with study design, quality control and project management of 11 journal paper publications, including meta-analysis, epidemiological reviews and RCTs. 
+  *Intern, Medical Affairs Department*\
+  *Jun 2017  - Sep 2017, Shanghai,China* 
+  + Supported with study design, quality control, SAP and project management of 11 journal paper publications, including meta-analysis, epidemiological reviews and RCTs. 
   + Collaborated with medical advisors, authors and biostatisticians to check and improve the statistical methods in these publications. 
   + Revised the department’s Standard Operating Procedures based on latest guidelines.
+
+<br> 
+
+# `r fa("users")` Teaching Experience
+* [P8105 Data Science I](https://p8105.com/), Columbia University, *2019 Fall*
+* **Los Angeles Biostatistics and Data Science Summer Training Program** ([LA's BeST](https://lasbest.usc.edu/)), University of Southern California, *2022 Summer*
+* **PM518a Statistical Methods for Epidemiology Studies**, University of Southern California, *2024 Spring*
+* **NCI multi-omic workshop**, Columbia University, *2024 Summer*
 
 <br> 
 

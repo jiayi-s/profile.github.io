@@ -1,5 +1,5 @@
 ---
-title: " "
+title: "Jiayi (Sylvia) Shen"
 ---
 ```{r, echo = FALSE }
 library(fontawesome)
@@ -12,7 +12,7 @@ library(fontawesome)
 <br>
 
   
-  Sylvia is a PhD student in Biostatistics at Keck School of Medicine, University of Southern California. She is born and raised in Shanghai, and she's also lived in Singapore, London and New York for a couple of years. She loves to travel and explore fun things to do in cities. A new hobby of hers since moving to southern California is hiking. (California sunshine is more than amazing!)
+  Jiayi is a PhD candidate in Biostatistics at Keck School of Medicine, University of Southern California. She has a diverse academic background in statistics, data science, and biomedical science (especially cancer biology). Her technical expertise includes statistical simulation & modelling, statistical genetics, causal inference, and machine learning.
   
 
 <style>
@@ -37,22 +37,26 @@ library(fontawesome)
 <div class="column-left">
 <h3 style="margin-left: 0%"> `r fa("seedling")` Research interests </h3>
 * Statistical Genetics  
-* Bioinformatics  
 * Causal Inference 
+* Experimental Design
+* Clinical Trials
 </div>
 
 <div class="column-center">
 <h3 style="margin-left: 0%"> `r fa("briefcase")` Programming skills </h3>
 * R 
+* Python
+* SQL
 * SAS  
-* MATLAB  
+* Stata  
 </div>
 
 <div class="column-right">
 <h3 style="margin-left: 0%"> `r fa("forward")` More about me </h3>
 <p style="margin-left: 0%">
-Check out my codes: `r fa("github")`  <a href="http://github.com/jiayi-s/"> jiayi-s </a>  
-Connect with me on Linkedin: `r fa("linkedin")`  <a href="https://www.linkedin.com/in/jiayi-sylvia-shen-482a48124/"> Sylvia Shen </a>  
+View my resume: <a href="education.html"> Resume </a>  
+Check out my publications: `r fa("google")`  <a href="https://scholar.google.com/citations?user=m-6wVvIAAAAJ&hl=en"> Google Scholar </a>  
+Connect with me on Linkedin: `r fa("linkedin")`  <a href="https://www.linkedin.com/in/jiayi-sylvia-shen/"> Jiayi (Sylvia) Shen </a>  
 Shoot me an email: `r fa("envelope")`  shenjiay AT usc.edu  
 </p>
 </div>

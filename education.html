@@ -11,26 +11,40 @@
 
 
 
-<title>education.utf8</title>
+<title>education.knit</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -43,32 +57,8 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
+
 
 <link rel="stylesheet" href="mystyle.css" type="text/css" />
 
@@ -79,10 +69,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -99,40 +85,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -160,7 +122,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -172,7 +134,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -182,11 +144,28 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.parent().addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -198,13 +177,12 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -212,16 +190,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -265,12 +236,12 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Sylvia Shen</a>
+      <a class="navbar-brand" href="index.html">Jiayi (Sylvia) Shen</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -287,7 +258,13 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
-  <a href="https://www.linkedin.com/in/jiayi-sylvia-shen-482a48124/">
+  <a href="https://scholar.google.com/citations?user=m-6wVvIAAAAJ&amp;hl=en">
+    <span class="fa fa-google"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/jiayi-sylvia-shen/">
     <span class="fa fa-linkedin"></span>
      
   </a>
@@ -303,7 +280,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -313,13 +290,16 @@ $(document).ready(function () {
 
 <p><br> <br></p>
 <div id="education" class="section level1">
-<h1><svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 640 512"><path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"/></svg> Education</h1>
+<h1><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+Education</h1>
 <ul>
-<li><strong>University of Southern California, Keck School of Medicine, Department of Preventative Medicine</strong>
+<li><strong>University of Southern California, Keck School of Medicine,
+Department of Population and Public Health Sciences</strong>
 <ul>
-<li>PhD in Biostatistics, <em>Los Angeles US, 2020 - Present</em></li>
+<li>PhD in Biostatistics, <em>Los Angeles US, 2020 - 2024</em></li>
 </ul></li>
-<li><strong>Columbia University, Mailman School of Public Health</strong>
+<li><strong>Columbia University, Mailman School of Public
+Health</strong>
 <ul>
 <li>MS in Biostatistics, <em>New York US, 2018 - 2020</em></li>
 </ul></li>
@@ -331,65 +311,164 @@ $(document).ready(function () {
 <p><br></p>
 </div>
 <div id="research-experience" class="section level1">
-<h1><svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"><path d="M437.2 403.5L320 215V64h8c13.3 0 24-10.7 24-24V24c0-13.3-10.7-24-24-24H120c-13.3 0-24 10.7-24 24v16c0 13.3 10.7 24 24 24h8v151L10.8 403.5C-18.5 450.6 15.3 512 70.9 512h306.2c55.7 0 89.4-61.5 60.1-108.5zM137.9 320l48.2-77.6c3.7-5.2 5.8-11.6 5.8-18.4V64h64v160c0 6.9 2.2 13.2 5.8 18.4l48.2 77.6h-172z"/></svg> Research Experience</h1>
+<h1><svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M288 0H160 128C110.3 0 96 14.3 96 32s14.3 32 32 32V196.8c0 11.8-3.3 23.5-9.5 33.5L10.3 406.2C3.6 417.2 0 429.7 0 442.6C0 480.9 31.1 512 69.4 512H378.6c38.3 0 69.4-31.1 69.4-69.4c0-12.8-3.6-25.4-10.3-36.4L329.5 230.4c-6.2-10.1-9.5-21.7-9.5-33.5V64c17.7 0 32-14.3 32-32s-14.3-32-32-32H288zM192 196.8V64h64V196.8c0 23.7 6.6 46.9 19 67.1L309.5 320h-171L173 263.9c12.4-20.2 19-43.4 19-67.1z"/></svg>
+Research Experience</h1>
 <ul>
-<li><strong>High-dimentional causal mediation analysis in the presence of mediator-outcome confounding</strong><br />
-<em>May 2019 - July 2020, Columbia University</em>
+<li><strong>Statistical modelling of GWAS summary statistics in diverse
+populations</strong><br />
+<em>Jan 2021 - Aug 2024, University of Southern California</em>
+<ul>
+<li>Methodology (Statistical Genetics)
+<ul>
+<li>Built a hierarchical model for joint analysis of marginal GWAS
+summary statistics across multiple populations (<a
+href="https://onlinelibrary.wiley.com/doi/10.1002/gepi.22562?af=R">“mJAM”</a>),
+improving PPV of fine-mapping performance by up to 2 fold while
+preserving sensitivity.</li>
+<li>Extended the model to incorporate high-dimensional multi-omics data
+and perform <a
+href="https://onlinelibrary.wiley.com/doi/10.1002/gepi.22577?af=R">“integrated
+analysis”</a>.</li>
+<li>Curated a CRAN-released R package <a
+href="https://github.com/USCbiostats/hJAM">“hJAM”</a> to implement the
+multi-population fine-mapping and integrated omics analysis with GWAS
+summary statistics.<br />
+</li>
+</ul></li>
+<li>Data Analytics
+<ul>
+<li>Performed fine-mapping using GWAS from 18 prostate cancer
+observational studies of over 20,000 individuals across 4 different
+ancestry groups, contributing to the discovery of <a
+href="https://www.nature.com/articles/s41588-023-01534-4">“451 genetic
+risk variants”</a> associated with prostate cancer.</li>
+<li>Constructed and evaluated various polygenic risk score models of 4
+cancer outcomes among a multi-population cohort.</li>
+</ul></li>
+</ul></li>
+<li><strong>High-dimentional causal mediation analysis in the presence
+of mediator-outcome confounding</strong><br />
+<em>May 2019 - Jul 2020, Columbia University</em>
 <ul>
 <li>Analyzed high-dimensional microbiome mRNA count data.</li>
-<li>Extended the “interventional effects” approach to the setting of high-dimensional mediators so as to estimate the mediation effect in presence of exposure-induced mediator-outcome confounding.</li>
-<li>Implemented de-biased <span class="math inline">\(\ell_1\)</span>-regularized estimation of generalized linear model for high-dimensional compositional data in MATLAB.</li>
-<li>Implemented inverse probability weighting (IPW) estimation of interventional effects in R.</li>
-<li>Conducted simulation studies to evaluate performance of proposed model.</li>
+<li>Extended the “interventional effects” approach to the setting of
+high-dimensional mediators to estimate the mediation effect in presence
+of exposure-induced mediator-outcome confounding.</li>
+<li>Implemented de-biased <span
+class="math inline">\(\ell_1\)</span>-regularized estimation of
+generalized linear model for high-dimensional compositional data in
+MATLAB.</li>
+<li>Implemented inverse probability weighting (IPW) estimation of
+interventional effects in R.</li>
+<li>Conducted simulation studies to evaluate performance of proposed
+model.</li>
 </ul></li>
-<li><strong>Estimating psychiatric disease heritability with EHR</strong><br />
-<em>May 2019 - December 2019, Columbia University</em>
+<li><strong>Estimating psychiatric disease heritability with
+EHR</strong><br />
+<em>May 2019 - Dec 2019, Columbia University</em>
 <ul>
-<li>Performed preliminary analysis of large-scale Electronic Health Records (EHR) data at family level.</li>
-<li>Estimated disease heritability using reparameterized linear and nonlinear mixed effect models with multi-level random effects in R, Stata and SAS.</li>
-<li>Used repeated subsampling method to validate the robustness of heritability estimates.</li>
-<li>Compared flexibility, computation time, and usability of different statistical packages for nonlinear random effects regression models with multiple constraints.</li>
+<li>Performed exploratory descriptive analysis (EDA) using large-scale
+Electronic Health Records (EHR) data at family level.</li>
+<li>Estimated disease heritability using reparameterized linear and
+nonlinear mixed effect models with multi-level random effects in R,
+Stata and SAS.</li>
+<li>Used repeated subsampling method to validate the robustness of
+heritability estimates.</li>
+<li>Compared flexibility, computation time, and usability of different
+statistical packages for nonlinear random effects regression models with
+multiple constraints.</li>
 </ul></li>
-<li><strong>Gene differential expression analysis using CRISPR screen data</strong><br />
-<em>March 2019 - August 2019, Columbia University</em>
+<li><strong>Gene differential expression analysis using CRISPR screen
+data</strong><br />
+<em>Mar 2019 - Aug 2019, Columbia University</em>
 <ul>
-<li>Reviewed and compared different normalization methods applicable to CRISPR screen data (RNA-sequencing data).</li>
-<li>Analyzed CRISPR screen data to show non-enrichment of negative control genes and identify enriched set of genes.<br />
-</li>
-<li>Illustrated differential gene expression by generating a variety of publication quality figures using R/Bioconductor packages.</li>
-<li>Developed a workflow using R to process RNA-sequencing data to visualize differential gene expression.</li>
+<li>Analyzed CRISPR screen data (RNA-seq data) using MAGeCK and
+performed gene enrichment analysis to identify genes involved in
+macrophage efferocytosis.</li>
+<li>Visualized differential gene expression through cloud plots, MA
+plots and volcano plots using R/Bioconductor packages.</li>
+<li>Developed a workflow using R to process RNA-sequencing data to
+visualize differential gene expression.</li>
 </ul></li>
-<li><strong>Identifying Distant Human-Yeast Orthologue Genes on PomBase</strong><br />
-<em>09/2017-03/2018, University College London</em>
+<li><strong>Identifying Distant Human-Yeast Orthologue Genes on
+PomBase</strong><br />
+<em>Sep 2017 - Mar 2018, University College London</em>
 <ul>
-<li>Retrieved distinct homologous amino acid sequence of yeast gene products using multiple sequence alignment tools, including BLAST and DIOPT.</li>
-<li>Analyzed and reviewed gene sequence and relevant literature of 470 gene products as results returned from the bioinformatics tools.</li>
-<li>Identified 10 pairs of putative human-yeast orthologs. All the predictions have been published on <a href="https://www.pombase.org/">Pombase.com</a>.</li>
+<li>Retrieved distinct homologous amino acid sequence of yeast gene
+products using multiple sequence alignment tools, including BLAST and
+DIOPT.</li>
+<li>Analyzed and reviewed gene sequence and relevant literature of 470
+gene products as results returned from the bioinformatics tools.</li>
+<li>Identified 10 pairs of putative human-yeast orthologs. All the
+predictions have been published on <a
+href="https://www.pombase.org/">Pombase.com</a>.</li>
 </ul></li>
 </ul>
 <p><br></p>
 </div>
 <div id="work-expereience" class="section level1">
-<h1><svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 512 512"><path d="M507.73 109.1c-2.24-9.03-13.54-12.09-20.12-5.51l-74.36 74.36-67.88-11.31-11.31-67.88 74.36-74.36c6.62-6.62 3.43-17.9-5.66-20.16-47.38-11.74-99.55.91-136.58 37.93-39.64 39.64-50.55 97.1-34.05 147.2L18.74 402.76c-24.99 24.99-24.99 65.51 0 90.5 24.99 24.99 65.51 24.99 90.5 0l213.21-213.21c50.12 16.71 107.47 5.68 147.37-34.22 37.07-37.07 49.7-89.32 37.91-136.73zM64 472c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z"/></svg> Work Expereience</h1>
+<h1><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M352 320c88.4 0 160-71.6 160-160c0-15.3-2.2-30.1-6.2-44.2c-3.1-10.8-16.4-13.2-24.3-5.3l-76.8 76.8c-3 3-7.1 4.7-11.3 4.7H336c-8.8 0-16-7.2-16-16V118.6c0-4.2 1.7-8.3 4.7-11.3l76.8-76.8c7.9-7.9 5.4-21.2-5.3-24.3C382.1 2.2 367.3 0 352 0C263.6 0 192 71.6 192 160c0 19.1 3.4 37.5 9.5 54.5L19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L297.5 310.5c17 6.2 35.4 9.5 54.5 9.5zM80 408a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+Work Expereience</h1>
 <ul>
+<li><strong>CVS Health</strong><br />
+<em>Data Science Intern</em><br />
+<em>Jun 2023 - Aug 2023, Remote,US</em>
+<ul>
+<li>Analyzed medical and Rx claim data of approx. 50,000 Aetna members.
+Conducted an opportunity analysis to identify saving opportunities from
+potential cancer drug rebates, with an estimated annual cost savings
+range of $5M to $16M.</li>
+<li>Created interactive dashboards in Tableau for visualizing cancer
+drug price variations and supporting data-driven decision-making
+processes. Communicated and interpreted findings to business
+stakeholders.</li>
+<li>Developed a novel metric to quantify cancer regimen outcomes based
+on trend in total cost of care in claim data, leading to potential
+machine learning and AI solutions for personalized cancer
+treatment.</li>
+</ul></li>
 <li><strong>Merck Sharp &amp; Dohme (China) Co., Ltd. </strong><br />
-<em>Associate Advisor, Medical Affairs Department</em><br />
-<em>06/2017-09/2017, Shanghai,China</em>
+<em>Intern, Medical Affairs Department</em><br />
+<em>Jun 2017 - Sep 2017, Shanghai,China</em>
 <ul>
-<li>Supported with study design, quality control and project management of 11 journal paper publications, including meta-analysis, epidemiological reviews and RCTs.</li>
-<li>Collaborated with medical advisors, authors and biostatisticians to check and improve the statistical methods in these publications.</li>
-<li>Revised the department’s Standard Operating Procedures based on latest guidelines.</li>
+<li>Supported with study design, quality control, SAP and project
+management of 11 journal paper publications, including meta-analysis,
+epidemiological reviews and RCTs.</li>
+<li>Collaborated with medical advisors, authors and biostatisticians to
+check and improve the statistical methods in these publications.</li>
+<li>Revised the department’s Standard Operating Procedures based on
+latest guidelines.</li>
 </ul></li>
 </ul>
 <p><br></p>
 </div>
-<div id="leadership" class="section level1">
-<h1><svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 576 512"><path d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"/></svg> Leadership</h1>
+<div id="teaching-experience" class="section level1">
+<h1><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></svg>
+Teaching Experience</h1>
 <ul>
-<li><strong>Career China, Columbia University Mailman School of Public Health</strong><br />
+<li><a href="https://p8105.com/">P8105 Data Science I</a>, Columbia
+University, <em>2019 Fall</em></li>
+<li><strong>Los Angeles Biostatistics and Data Science Summer Training
+Program</strong> (<a href="https://lasbest.usc.edu/">LA’s BeST</a>),
+University of Southern California, <em>2022 Summer</em></li>
+<li><strong>PM518a Statistical Methods for Epidemiology
+Studies</strong>, University of Southern California, <em>2024
+Spring</em></li>
+<li><strong>NCI multi-omic workshop</strong>, Columbia University,
+<em>2024 Summer</em></li>
+</ul>
+<p><br></p>
+</div>
+<div id="leadership" class="section level1">
+<h1><svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M88.2 309.1c9.8-18.3 6.8-40.8-7.5-55.8C59.4 230.9 48 204 48 176c0-63.5 63.8-128 160-128s160 64.5 160 128s-63.8 128-160 128c-13.1 0-25.8-1.3-37.8-3.6c-10.4-2-21.2-.6-30.7 4.2c-4.1 2.1-8.3 4.1-12.6 6c-16 7.2-32.9 13.5-49.9 18c2.8-4.6 5.4-9.1 7.9-13.6c1.1-1.9 2.2-3.9 3.2-5.9zM0 176c0 41.8 17.2 80.1 45.9 110.3c-.9 1.7-1.9 3.5-2.8 5.1c-10.3 18.4-22.3 36.5-36.6 52.1c-6.6 7-8.3 17.2-4.6 25.9C5.8 378.3 14.4 384 24 384c43 0 86.5-13.3 122.7-29.7c4.8-2.2 9.6-4.5 14.2-6.8c15.1 3 30.9 4.5 47.1 4.5c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176zM432 480c16.2 0 31.9-1.6 47.1-4.5c4.6 2.3 9.4 4.6 14.2 6.8C529.5 498.7 573 512 616 512c9.6 0 18.2-5.7 22-14.5c3.8-8.8 2-19-4.6-25.9c-14.2-15.6-26.2-33.7-36.6-52.1c-.9-1.7-1.9-3.4-2.8-5.1C622.8 384.1 640 345.8 640 304c0-94.4-87.9-171.5-198.2-175.8c4.1 15.2 6.2 31.2 6.2 47.8l0 .6c87.2 6.7 144 67.5 144 127.4c0 28-11.4 54.9-32.7 77.2c-14.3 15-17.3 37.6-7.5 55.8c1.1 2 2.2 4 3.2 5.9c2.5 4.5 5.2 9 7.9 13.6c-17-4.5-33.9-10.7-49.9-18c-4.3-1.9-8.5-3.9-12.6-6c-9.5-4.8-20.3-6.2-30.7-4.2c-12.1 2.4-24.7 3.6-37.8 3.6c-61.7 0-110-26.5-136.8-62.3c-16 5.4-32.8 9.4-50 11.8C279 439.8 350 480 432 480z"/></svg>
+Leadership</h1>
+<ul>
+<li><strong>Career China, Columbia University Mailman School of Public
+Health</strong><br />
 Secretary, <em>New York, US, 2019 - 2020</em><br />
 </li>
-<li><strong>Mandarin Class, UCL Chinese Students and Scholar Association</strong><br />
+<li><strong>Mandarin Class, UCL Chinese Students and Scholar
+Association</strong><br />
 Head of Executive Committee, <em>London, UK, 2016 - 2018</em></li>
 </ul>
 </div>
@@ -400,11 +479,14 @@ Head of Executive Committee, <em>London, UK, 2016 - 2018</em></li>
     display: flex;
     justify-content: space-between;
     text-align: justify >
-  <p class="footerP"> © 2020 Jiayi Shen. All rights reserved.
+  <p class="footerP"> © 2024 Jiayi Shen. All rights reserved.
 This site is hosted by Github Pages and is built on R Markdown. </p>
 </footer>
 
 </center>
+
+
+
 
 
 
@@ -414,7 +496,7 @@ This site is hosted by Github Pages and is built on R Markdown. </p>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -432,7 +514,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
